@@ -9,7 +9,7 @@ import random
 import pyperclip
 import pyautogui
 
-
+codigo_produto = '0000000000'
 def iniciar_driver():
     chrome_options = Options()
     arguments = ['--lang=pt-BR', '--window-size=1920,1080','user-data-dir=C:\\Users\\Arthur23129\\AppData\\Local\\Google\\Chrome\\User Data\\Defalt']
@@ -99,7 +99,7 @@ while continuar != 'n' or continuar != 'N':
     driver.find_element(By.XPATH, '//*[@id="specifications_task"]/div[2]/div[4]/button[1]').click()
     sleep(random.uniform(2,5))
 
-    textoCopiar = '0000789493406'
+    textoCopiar = codigo_produto
     pyperclip.copy(textoCopiar)
     driver.find_element(By.XPATH, '//*[@id="product_identifier_task"]/div[2]/div[1]/ul/li/div/div[1]/label/div/input').send_keys(Keys.CONTROL, 'v')
 
@@ -112,7 +112,7 @@ while continuar != 'n' or continuar != 'N':
         modelo_de_placa.send_keys(Keys.CONTROL, 'v')
     except:
         modelo_de_placa = driver.find_element(By.XPATH, "//input[@name='COMPATIBLE_TV_MODEL']")
-        modelo_de_placa.send_keys(Keys.CONTROL, 'v')
+        modelo_de_placa.send_keys(Keys.CONTROL, 'v') 
     
     sleep(random.uniform(1.5,4))
     driver.find_element(By.XPATH, '//*[@id="technical_specifications_task"]/div[2]/div[2]/button[1]').click()
@@ -150,42 +150,7 @@ while continuar != 'n' or continuar != 'N':
     driver.find_element(By.XPATH, '//*[@id="description_task"]/div/div').click()
 
     sleep(random.uniform(2,5))
-    textoCopiar = '''ATENÇÃO! TEMOS EM ESTOQUE!
-
-Os 3 dias solicitados para disponibilizar o produto dizem respeito à nossa verificação. Ao realizar a compra pediremos o envio da foto da etiqueta do aparelho em que a peça será utilizada. Assim, podemos determinar a compatibilidade tanto de modelo quanto de versão de forma muito mais prática, evitando problemas como devoluções. Caso deseje se adiantar, NOS ENVIE FOTO DA ETIQUETA DO APARELHO PELO CAMPO DE MENSAGENS JÁ NO ATO DA COMPRA. NÓS DESPACHAREMOS O PRODUTO TÃO LOGO A FOTO NOS FOR ENVIADA!
-
-
-ANTES DA COMPRA CONFIRA SE A VERSÃO E O CÓDIGO DA SUA PLACA SÃO IGUAIS ÀS DO ANÚNCIO, POIS EXISTE MAIS DE UM MODELO DE PLACA PARA A MESMA TV.
-
-
-
-Produto retirado de TV com tela quebrada!
-Peça 100% Original
-Todos nossos produtos são testados e validados antes do envio.
-
-
-Produto disponível para pronta entrega!
-
-IMPORTANTE:
-Antes de efetuar a compra, certifique se que a peça necessária é realmente a peça acima, pois não nos responsabilizamos por erros de análise técnica ou diagnostico errado.
-
-Nossa garantia não cobre:
-Erro de diagnostico por parte do comprador
-Defeito causado por descarga elétrica
-Defeito causado por oxidação
-Defeito causado por imperícia na instalação
-Mau uso da peça
-Queda ou manuseio incorreto
-Lacre (selo de garantia) rompido, rasurado ou danificado
-
-Em caso de garantia, entre em contato com nosso suporte técnico para avaliação, caso não tenhamos outra peça em estoque, faremos o reembolso do valor pago pelo produto, não incluindo o valor do frete.
-
-POR FAVOR LEIA COM ATENÇÃO!
-LEIA TODO O ANUNCIO ANTES DE COMPRAR !
-PRODUTOS COMPRADOS NA INTERNET SEMPRE TERÃO CUSTOS DE FRETE.
-SE VOCÊ NÃO LEVOU SUA TV A UMA ASSISTÊNCIA TÉCNICA E ESTÁ COMPRANDO A PLACA E TENTANDO CONSERTAR SOZINHO, NÃO COMPRE !!!!!
-
-JM ELETRONICOS .'''
+    textoCopiar = '''texto'''
     pyperclip.copy(textoCopiar)
 
     driver.find_element(By.XPATH, '//*[@id="description_task"]/div[2]/div[2]/label').send_keys(Keys.CONTROL, 'v')
