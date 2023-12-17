@@ -9,7 +9,7 @@ import random
 import pyperclip
 import pyautogui
 
-codigo_produto = '0000000000'
+codigo_produto = '0000789493406'
 def iniciar_driver():
     chrome_options = Options()
     arguments = ['--lang=pt-BR', '--window-size=1920,1080','user-data-dir=C:\\Users\\Arthur23129\\AppData\\Local\\Google\\Chrome\\User Data\\Defalt']
@@ -56,10 +56,6 @@ while continuar != 'n' or continuar != 'N':
     confimar = driver.find_element(By.XPATH, '//button').click()
     sleep(1)
 
-
-    foto_principal = (f' "0"')
-    outras_fotos = (f'"1" "2" "3" ')
-
     try:
         driver.find_element(By.XPATH, '//*[@id="category_task"]/div[2]/div[2]/button').click() 
         sleep(random.uniform(2,5))
@@ -80,26 +76,14 @@ while continuar != 'n' or continuar != 'N':
     confirmar_titulo.click()
     sleep(random.uniform(2,5))
 
-
-    selecionarFoto = driver.find_element(By.XPATH, '//*[@id="specifications_task"]/div[2]/div[2]/div/div/div/div')
-    selecionarFoto.click()
+    pasta = 'C:\\Users\\Arthur23129\\Downloads\\pasta\\'
+    driver.find_element(By.XPATH, '//*[@id="specifications_task"]/div[2]/div[2]/div/div/div/input').send_keys(f'{pasta}1.jpg \n {pasta}2.jpg \n {pasta}3.jpg \n {pasta}0.png')    
     sleep(random.uniform(2,5))
-
-
-    try:
-        tamanho = pyautogui.locateCenterOnScreen('C:\\Users\\Arthur23129\\Downloads\\Tamanho.png')
-        pyautogui.moveTo(tamanho[0], tamanho[1],duration=1)
-    except:
-        pyautogui.click(x=2363, y=482,duration=1)
-    pyautogui.write(f'{outras_fotos} {foto_principal}')
-    sleep(random.uniform(0.4,1))
-    pyautogui.press('enter')
-    sleep(random.uniform(2,3))
 
     driver.find_element(By.XPATH, '//*[@id="specifications_task"]/div[2]/div[4]/button[1]').click()
     sleep(random.uniform(2,5))
 
-    textoCopiar = codigo_produto
+    textoCopiar = '0000789493406'
     pyperclip.copy(textoCopiar)
     driver.find_element(By.XPATH, '//*[@id="product_identifier_task"]/div[2]/div[1]/ul/li/div/div[1]/label/div/input').send_keys(Keys.CONTROL, 'v')
 
